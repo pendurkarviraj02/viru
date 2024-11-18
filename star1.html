@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Stars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 300px;
+        }
+        #stars {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-top: 20px;
+            font-size: 12px;
+            overflow-y: scroll;
+            max-height: 300px;
+        }
+    </style>
+    <script>
+        function generateStars() {
+            const userInput = document.getElementById("messageInput").value.trim();
+            const starContainer = document.getElementById("stars");
+            
+            // Check if the input is "I love you"
+            if (userInput.toLowerCase() === "i love you") {
+                let stars = "";
+                for (let i = 0; i < 1000000; i++) { // 1 million stars for testing; adjust to 1 crore if desired
+                    stars += "⭐";
+                    if (i % 100 === 0) stars += "\n"; // Add newlines for better readability
+                }
+                starContainer.textContent = stars;
+            } else {
+                alert("Please type 'I love you' first!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>"I love you" bol tarach star distil</h1>
+    <input type="text" id="messageInput" placeholder="Type your message here" />
+    <br />
+    <button onclick="generateStars()">Click Me</button>
+    <pre id="stars"></pre>
+</body>
+</html>
